@@ -10,101 +10,54 @@
   <meta property="og:title" content="TrendDrop Studio — Trending Product Reports" />
   <meta property="og:description" content="Curated PDF + CSV reports with data-backed picks for e-commerce sellers." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="YOUR_LOGO_URL" />
-  <meta property="og:url" content="https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPO" />
+  <meta property="og:image" content="https://maxamilli0n.github.io/trenddrop-site/assets/logo.png" />
+  <meta property="og:url" content="https://maxamilli0n.github.io/trenddrop-site/" />
 
-  <!-- Simple fonts -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #0b0f14;
-      --panel: #111824;
-      --text: #eaf2ff;
-      --muted: #96a2b8;
-      --brand: #6aa6ff;
-      --brand-2: #20d3ff;
-      --ok: #35d48b;
-      --border: #1d283a;
+      --bg:#0b0f14; --panel:#111824; --text:#eaf2ff; --muted:#96a2b8;
+      --brand:#6aa6ff; --brand-2:#20d3ff; --ok:#35d48b; --border:#1d283a;
     }
-    * { box-sizing: border-box; }
-    html, body { margin: 0; background: var(--bg); color: var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
-    a { color: var(--brand-2); text-decoration: none; }
-    .wrap { max-width: 1100px; margin: 0 auto; padding: 24px; }
-    header { display:flex; align-items:center; justify-content:space-between; gap:16px; }
-    .brand { display:flex; align-items:center; gap:14px; }
-    .brand img { height:42px; width:auto; border-radius:10px; }
-    .badge { padding:4px 10px; border:1px solid var(--border); border-radius:999px; color:var(--muted); font-size:12px; }
-
-    .hero {
-      margin-top: 38px;
-      background: linear-gradient(135deg, #0f1726, #0b111b 60%);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: clamp(20px, 6vw, 48px);
-      position: relative;
-      overflow: hidden;
-    }
-    .hero h1 { font-size: clamp(26px, 5vw, 44px); line-height: 1.1; margin: 0 0 10px; }
-    .sub { color: var(--muted); max-width: 780px; font-size: 15.5px; }
-    .cta { margin-top: 22px; display:flex; flex-wrap:wrap; gap:12px; }
-    .btn {
-      background: linear-gradient(135deg, var(--brand), var(--brand-2));
-      color: #071223;
-      font-weight: 700;
-      border: none;
-      padding: 12px 18px;
-      border-radius: 12px;
-      cursor: pointer;
-      font-size: 15px;
-      transition: transform .08s ease;
-    }
-    .btn:hover { transform: translateY(-1px); }
-    .btn.outline {
-      background: transparent;
-      color: var(--text);
-      border: 1px solid var(--border);
-    }
-
-    .grid { margin-top: 32px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-    @media (max-width: 920px){ .grid { grid-template-columns: 1fr; } }
-
-    .card {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 18px;
-      min-height: 140px;
-    }
-    .card h3 { margin: 0 0 8px; font-size: 18px; }
-    .card p { margin: 0; color: var(--muted); font-size: 14.5px; }
-    .tick { color: var(--ok); margin-right: 8px; }
-
-    .panel {
-      margin-top: 28px;
-      border: 1px solid var(--border);
-      background: linear-gradient(180deg, #0b121c, #0b1118);
-      border-radius: 16px;
-      padding: 18px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-    .panel strong { color: var(--text); }
-
-    footer { margin: 40px 0 10px; color: var(--muted); font-size: 13px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; }
-    .footer-links a { margin-right: 14px; color: var(--muted); }
-    .social a { margin-left: 10px; }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    a{color:var(--brand-2);text-decoration:none}
+    .wrap{max-width:1100px;margin:0 auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .brand img{height:42px;width:auto;border-radius:10px}
+    .badge{padding:4px 10px;border:1px solid var(--border);border-radius:999px;color:var(--muted);font-size:12px}
+    .hero{margin-top:38px;background:linear-gradient(135deg,#0f1726,#0b111b 60%);border:1px solid var(--border);border-radius:18px;padding:clamp(20px,6vw,48px);position:relative;overflow:hidden}
+    .hero h1{font-size:clamp(26px,5vw,44px);line-height:1.1;margin:0 0 10px}
+    .sub{color:var(--muted);max-width:780px;font-size:15.5px}
+    .cta{margin-top:22px;display:flex;flex-wrap:wrap;gap:12px}
+    .btn{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#071223;font-weight:700;border:none;padding:12px 18px;border-radius:12px;cursor:pointer;font-size:15px;transition:transform .08s ease}
+    .btn:hover{transform:translateY(-1px)}
+    .btn.outline{background:transparent;color:var(--text);border:1px solid var(--border)}
+    .grid{margin-top:32px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    @media (max-width:920px){.grid{grid-template-columns:1fr}}
+    .card{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:18px;min-height:140px}
+    .card h3{margin:0 0 8px;font-size:18px}
+    .card p{margin:0;color:var(--muted);font-size:14.5px}
+    .tick{color:var(--ok);margin-right:8px}
+    .panel{margin-top:28px;border:1px solid var(--border);background:linear-gradient(180deg,#0b121c,#0b1118);border-radius:16px;padding:18px;color:var(--muted);font-size:14px}
+    .panel strong{color:var(--text)}
+    footer{margin:40px 0 10px;color:var(--muted);font-size:13px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+    .footer-links a{margin-right:14px;color:var(--muted)}
+    .social a{margin-left:10px}
   </style>
 
-  <!-- JSON-LD (basic org) -->
+  <!-- JSON-LD -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"Organization",
     "name":"TrendDrop Studio",
-    "url":"https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPO",
-    "logo":"YOUR_LOGO_URL",
+    "url":"https://maxamilli0n.github.io/trenddrop-site/",
+    "logo":"https://maxamilli0n.github.io/trenddrop-site/assets/logo.png",
     "sameAs":["https://x.com/trenddropstudio"]
   }
   </script>
@@ -113,9 +66,9 @@
   <div class="wrap">
     <header>
       <div class="brand">
-        <img src="YOUR_LOGO_URL" alt="TrendDrop logo">
+        <img src="https://maxamilli0n.github.io/trenddrop-site/assets/logo.png" alt="TrendDrop logo" width="42" height="42">
         <div>
-          <div style="font-weight:700; font-size:18px;">TrendDrop Studio</div>
+          <div style="font-weight:700;font-size:18px;">TrendDrop Studio</div>
           <div class="badge">Digital Reports • PDF + CSV</div>
         </div>
       </div>
@@ -125,15 +78,17 @@
     </header>
 
     <section class="hero">
-      <h1>Data-Driven Reports on <span style="background:linear-gradient(135deg,var(--brand),var(--brand-2));-webkit-background-clip:text;background-clip:text;color:transparent;">Trending E-Commerce Products</span></h1>
+      <h1>Data-Driven Reports on
+        <span style="background:linear-gradient(135deg,var(--brand),var(--brand-2));-webkit-background-clip:text;background-clip:text;color:transparent;">
+          Trending E-Commerce Products
+        </span>
+      </h1>
       <p class="sub">
         Each week we analyze thousands of marketplace listings and deliver a curated list of top performers — in an easy-to-scan PDF plus CSV for deeper analysis.
         Built for resellers, dropshippers, and e-commerce entrepreneurs.
       </p>
       <div class="cta">
-        <!-- BUY (Lemon Squeezy) -->
         <a class="btn" href="https://trenddropstudio.lemonsqueezy.com/buy/c00bf18a-04f1-44a0-8dec-bfc5cf5b4348" target="_blank" rel="noopener">Buy Weekly Report</a>
-        <!-- SAMPLE (Supabase last weekly) -->
         <a class="btn outline" href="https://nkuanqodjejvojwvypvp.supabase.co/storage/v1/object/public/trenddrop-reports/weekly/latest.pdf" target="_blank" rel="noopener">View Sample (PDF)</a>
       </div>
     </section>
@@ -154,13 +109,13 @@
     </section>
 
     <div class="panel">
-      <strong>What you get:</strong> Weekly Top-50 report (PDF + CSV), hand-picked from live data with clean formatting and links.  
-      <br />This is a <strong>digital download only</strong>. No physical items are shipped.
+      <strong>What you get:</strong> Weekly Top-50 report (PDF + CSV), hand-picked from live data with clean formatting and links.
+      <br/>This is a <strong>digital download only</strong>. No physical items are shipped.
     </div>
 
     <footer>
       <div class="footer-links">
-        © <span id="y"></span> TrendDrop Studio • <a href="mailto:hello@yourdomain.com">Contact</a>
+        © <span id="y"></span> TrendDrop Studio • <a href="mailto:hello@trenddropstudio.com">Contact</a>
       </div>
       <div class="footer-links">
         <a href="#" onclick="alert('We only sell digital reports. No personal data is collected on this static site.'); return false;">Privacy</a>
