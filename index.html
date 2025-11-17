@@ -24,35 +24,149 @@
 
   <style>
     :root {
-      --bg:#0b0f14; --panel:#111824; --text:#eaf2ff; --muted:#96a2b8;
-      --brand:#6aa6ff; --brand-2:#20d3ff; --ok:#35d48b; --border:#1d283a;
+      --bg:#0b0f14;
+      --panel:#111824;
+      --text:#eaf2ff;
+      --muted:#96a2b8;
+      --brand:#6aa6ff;
+      --brand-2:#20d3ff;
+      --ok:#35d48b;
+      --danger:#ff5c7a;
+      --border:#1d283a;
     }
     *{box-sizing:border-box}
-    html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    html,body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif
+    }
     a{color:var(--brand-2);text-decoration:none}
     .wrap{max-width:1100px;margin:0 auto;padding:24px}
     header{display:flex;align-items:center;justify-content:space-between;gap:16px}
     .brand{display:flex;align-items:center;gap:14px}
     .brand img{height:42px;width:auto;border-radius:10px}
     .badge{padding:4px 10px;border:1px solid var(--border);border-radius:999px;color:var(--muted);font-size:12px}
-    .hero{margin-top:38px;background:linear-gradient(135deg,#0f1726,#0b111b 60%);border:1px solid var(--border);border-radius:18px;padding:clamp(20px,6vw,48px);position:relative;overflow:hidden}
+    .hero{
+      margin-top:38px;
+      background:linear-gradient(135deg,#0f1726,#0b111b 60%);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:clamp(20px,6vw,48px);
+      position:relative;
+      overflow:hidden
+    }
     .hero h1{font-size:clamp(26px,5vw,44px);line-height:1.1;margin:0 0 10px}
     .sub{color:var(--muted);max-width:780px;font-size:15.5px}
     .cta{margin-top:22px;display:flex;flex-wrap:wrap;gap:12px}
-    .btn{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#071223;font-weight:700;border:none;padding:12px 18px;border-radius:12px;cursor:pointer;font-size:15px;transition:transform .08s ease}
+    .btn{
+      background:linear-gradient(135deg,var(--brand),var(--brand-2));
+      color:#071223;
+      font-weight:700;
+      border:none;
+      padding:12px 18px;
+      border-radius:12px;
+      cursor:pointer;
+      font-size:15px;
+      transition:transform .08s ease
+    }
     .btn:hover{transform:translateY(-1px)}
-    .btn.outline{background:transparent;color:var(--text);border:1px solid var(--border)}
+    .btn.outline{
+      background:transparent;
+      color:var(--text);
+      border:1px solid var(--border)
+    }
     .grid{margin-top:32px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
     @media (max-width:920px){.grid{grid-template-columns:1fr}}
     .card{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:18px;min-height:140px}
     .card h3{margin:0 0 8px;font-size:18px}
     .card p{margin:0;color:var(--muted);font-size:14.5px}
     .tick{color:var(--ok);margin-right:8px}
-    .panel{margin-top:28px;border:1px solid var(--border);background:linear-gradient(180deg,#0b121c,#0b1118);border-radius:16px;padding:18px;color:var(--muted);font-size:14px}
+    .panel{
+      margin-top:28px;
+      border:1px solid var(--border);
+      background:linear-gradient(180deg,#0b121c,#0b1118);
+      border-radius:16px;
+      padding:18px;
+      color:var(--muted);
+      font-size:14px
+    }
     .panel strong{color:var(--text)}
-    footer{margin:40px 0 10px;color:var(--muted);font-size:13px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+    footer{
+      margin:40px 0 10px;
+      color:var(--muted);
+      font-size:13px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:10px
+    }
     .footer-links a{margin-right:14px;color:var(--muted)}
     .social a{margin-left:10px}
+
+    /* Premium checker card */
+    .check-card{
+      margin-top:26px;
+      padding:18px;
+      border-radius:16px;
+      background:var(--panel);
+      border:1px dashed var(--border);
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .check-card-header{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      font-weight:600;
+      color:var(--text);
+      font-size:15px;
+    }
+    .check-dot{
+      width:8px;
+      height:8px;
+      border-radius:999px;
+      background:var(--brand-2);
+    }
+    .check-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+    }
+    .check-input{
+      flex:1 1 220px;
+      min-width:0;
+      padding:9px 10px;
+      border-radius:10px;
+      border:1px solid var(--border);
+      background:#05070d;
+      color:var(--text);
+      font-size:14px;
+    }
+    .check-input::placeholder{color:#627089}
+    .check-btn{
+      padding:9px 14px;
+      border-radius:10px;
+      border:none;
+      cursor:pointer;
+      font-size:14px;
+      font-weight:600;
+      background:linear-gradient(135deg,var(--brand),var(--brand-2));
+      color:#071223;
+      white-space:nowrap;
+    }
+    .check-status{
+      font-size:13px;
+      min-height:18px;
+    }
+    .check-status.ok{color:var(--ok);}
+    .check-status.bad{color:var(--danger);}
+    .check-status.muted{color:var(--muted);}
 
     /* Sticky footer CTA */
     .cta-sticky{
@@ -125,12 +239,11 @@
            href="https://t.me/TrendDropStudio"
            target="_blank" rel="noopener">Join Telegram</a>
 
-        <!-- NEW: Stripe test payment → Premium access -->
-        <!-- When you go live, just swap this URL to your live Stripe payment link -->
+        <!-- Stripe payment → Premium access (currently test link) -->
         <a class="btn"
            href="https://buy.stripe.com/test_9B614m2EqfiCaRB3kKdMI01"
            target="_blank" rel="noopener">
-          Join Premium (Test)
+          Join Premium
         </a>
       </div>
     </section>
@@ -155,6 +268,30 @@
       <br/>This is a <strong>digital download only</strong>. No physical items are shipped.
     </div>
 
+    <!-- Premium access checker -->
+    <div class="check-card">
+      <div class="check-card-header">
+        <span class="check-dot"></span>
+        <span>Already purchased Premium?</span>
+      </div>
+      <p style="margin:0;color:var(--muted);font-size:13px;">
+        Enter your email to confirm your Premium status and make sure you’re on the list.
+      </p>
+      <form id="premium-check-form" class="check-row">
+        <input
+          id="premium-email"
+          class="check-input"
+          type="email"
+          required
+          autocomplete="email"
+          placeholder="you@example.com" />
+        <button type="submit" class="check-btn">Check premium access</button>
+      </form>
+      <div id="premium-status" class="check-status muted">
+        We’ll check your email against active Premium members.
+      </div>
+    </div>
+
     <footer>
       <div class="footer-links">
         © <span id="y"></span> TrendDrop Studio • <a href="mailto:hello@trenddropstudio.com">Contact</a>
@@ -169,14 +306,65 @@
   <!-- Sticky CTA -->
   <div class="cta-sticky">
     <span>Weekly Top 50 Trending Products (PDF + CSV)</span>
-    <!-- Sticky bar now also pushes to the Stripe test link -->
+    <!-- Sticky bar also pushes to the Stripe link -->
     <a class="cta-sticky-btn"
        href="https://buy.stripe.com/test_9B614m2EqfiCaRB3kKdMI01"
        target="_blank" rel="noopener">
-      Join Premium (Test) →
+      Join Premium →
     </a>
   </div>
 
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <script>
+    // Footer year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Premium access checker
+    (function () {
+      const form   = document.getElementById('premium-check-form');
+      const emailI = document.getElementById('premium-email');
+      const status = document.getElementById('premium-status');
+
+      if (!form || !emailI || !status) return;
+
+      const FN_URL = "https://nkuanqodjejvojwvypvp.functions.supabase.co/premium-status";
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const email = emailI.value.trim();
+
+        if (!email) return;
+
+        status.textContent = "Checking…";
+        status.className = "check-status muted";
+
+        try {
+          const res = await fetch(FN_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email })
+          });
+
+          if (!res.ok) {
+            status.textContent = "Something went wrong while checking. Please try again in a moment.";
+            status.className = "check-status bad";
+            return;
+          }
+
+          const data = await res.json();
+          if (data && data.isPremium) {
+            status.textContent = "✅ You’re an active Premium member. Check your inbox for the invite link.";
+            status.className = "check-status ok";
+          } else {
+            status.textContent = "We couldn’t find an active Premium membership for that email. Double-check the spelling or complete checkout first.";
+            status.className = "check-status bad";
+          }
+        } catch (err) {
+          console.error(err);
+          status.textContent = "Network error while checking. Please try again.";
+          status.className = "check-status bad";
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
