@@ -78,7 +78,7 @@
       border:1px solid var(--border)
     }
 
-    /* NEW: Latest Drop section under hero */
+    /* Latest Drop section under hero */
     .latest-drop{
       margin-top:14px;
       border:1px solid var(--border);
@@ -90,9 +90,7 @@
       justify-content:space-between;
       gap:16px;
     }
-    .latest-left{
-      min-width:0;
-    }
+    .latest-left{min-width:0;}
     .latest-kicker{
       display:flex;
       align-items:center;
@@ -177,7 +175,7 @@
     .card p{margin:0;color:var(--muted);font-size:14.5px}
     .tick{color:var(--ok);margin-right:8px}
 
-    /* NEW: human/opinionated card styling */
+    /* Human/opinionated card styling */
     .card.human{
       background:linear-gradient(135deg,rgba(106,166,255,.14),rgba(32,211,255,.08));
       border:1px solid rgba(106,166,255,.25);
@@ -295,6 +293,9 @@
       color:#071223; border-radius:10px; text-decoration:none; font-weight:700;
     }
     @media (max-width:680px){ .cta-sticky span{display:none;} }
+
+    /* Small helper so jump-links land nicely */
+    .anchor-offset{scroll-margin-top:18px;}
   </style>
 
   <!-- JSON-LD -->
@@ -334,27 +335,27 @@
         Each week we analyze thousands of marketplace listings and deliver a curated list of top performers — in an easy-to-scan PDF plus CSV for deeper analysis.
         Built for resellers, dropshippers, and e-commerce entrepreneurs.
       </p>
-      <div class="cta">
-        <!-- BUY → Gumroad with UTM -->
+
+      <!-- SINGLE source of truth for the Sample + Pack links -->
+      <div id="primary-cta" class="cta anchor-offset">
         <a class="btn"
            href="https://trenddropstudio.gumroad.com/l/trend-pack?utm_source=website&utm_medium=github&utm_campaign=launch"
            target="_blank" rel="noopener">
-          Buy Weekly Report
+          Get this week’s pack →
         </a>
 
-        <!-- Free Sample on Gumroad -->
         <a class="btn outline"
            href="https://trenddropstudio.gumroad.com/l/free-sample?utm_source=website&utm_medium=github&utm_campaign=free-sample"
            target="_blank" rel="noopener">
-          Get Free Sample (PDF + CSV)
+          See free sample (PDF + CSV)
         </a>
 
-        <!-- Public Telegram channel -->
         <a class="btn outline"
            href="https://t.me/TrendDropStudio"
-           target="_blank" rel="noopener">Join Telegram</a>
+           target="_blank" rel="noopener">
+          Join Telegram
+        </a>
 
-        <!-- Stripe payment → Premium access (currently test link) -->
         <a class="btn"
            href="https://buy.stripe.com/test_9B614m2EqfiCaRB3kKdMI01"
            target="_blank" rel="noopener">
@@ -363,7 +364,7 @@
       </div>
     </section>
 
-    <!-- NEW: Latest Drop (Option A) -->
+    <!-- Latest Drop (info + urgency, NO duplicate outgoing links) -->
     <section class="latest-drop" aria-label="This Week's Drop">
       <div class="latest-left">
         <div class="latest-kicker">
@@ -383,12 +384,8 @@
           Updated: <span id="drop-updated">Dec 15, 2025</span>
         </div>
         <div class="mini-cta">
-          <a class="mini-link" href="https://trenddropstudio.gumroad.com/l/free-sample?utm_source=website&utm_medium=github&utm_campaign=free-sample" target="_blank" rel="noopener">
-            See a sample
-          </a>
-          <a class="mini-link primary" href="https://trenddropstudio.gumroad.com/l/trend-pack?utm_source=website&utm_medium=github&utm_campaign=latest-drop" target="_blank" rel="noopener">
-            Get this week’s pack →
-          </a>
+          <a class="mini-link" href="#primary-cta">See the sample ↑</a>
+          <a class="mini-link primary" href="#primary-cta">Get the pack ↑</a>
         </div>
       </div>
     </section>
@@ -399,7 +396,6 @@
         <p>We surface the top products by seller reputation, pricing, and demand signals. No scraping dumps — only the good stuff.</p>
       </div>
 
-      <!-- NEW: Option B (human card replacing one feature card) -->
       <div class="card human">
         <h3><span class="tick">●</span>Built this because scrolling marketplaces sucks.</h3>
         <p>If you’ve ever lost a “deal” because you saw it too late… yeah. Same. This is my way of getting the good stuff surfaced faster.</p>
@@ -411,11 +407,12 @@
       </div>
     </section>
 
+    <!-- Keep this, but remove the extra sample link so it doesn’t feel repetitive -->
     <div class="panel">
       <strong>What you get:</strong> Weekly Top-50 report (PDF + CSV), hand-picked from live data with clean formatting and links.
       <br/>This is a <strong>digital download only</strong>. No physical items are shipped.
       <br/><br/>
-      Want to see the layout first? <strong><a href="https://trenddropstudio.gumroad.com/l/free-sample?utm_source=website&utm_medium=github&utm_campaign=free-sample" target="_blank" rel="noopener">Download a free sample here.</a></strong>
+      <span style="color:var(--muted)">Tip: grab the sample or the pack using the buttons at the top.</span>
     </div>
 
     <!-- Premium access checker -->
@@ -453,7 +450,7 @@
     </footer>
   </div>
 
-  <!-- Sticky CTA -->
+  <!-- Sticky CTA (Premium only) -->
   <div class="cta-sticky">
     <span>Weekly Top 50 Trending Products (PDF + CSV)</span>
     <a class="cta-sticky-btn"
@@ -467,7 +464,7 @@
     // Footer year
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // NEW: auto-set "Updated" label to today's date (local)
+    // Auto-set "Updated" label to today's date (local)
     (function () {
       const el = document.getElementById('drop-updated');
       if (!el) return;
@@ -489,7 +486,6 @@
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const email = emailI.value.trim();
-
         if (!email) return;
 
         status.textContent = "Checking…";
