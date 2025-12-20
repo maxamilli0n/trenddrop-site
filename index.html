@@ -47,6 +47,7 @@
     .brand{display:flex;align-items:center;gap:14px}
     .brand img{height:42px;width:auto;border-radius:10px}
     .badge{padding:4px 10px;border:1px solid var(--border);border-radius:999px;color:var(--muted);font-size:12px}
+
     .hero{
       margin-top:38px;
       background:linear-gradient(135deg,#0f1726,#0b111b 60%);
@@ -76,12 +77,124 @@
       color:var(--text);
       border:1px solid var(--border)
     }
-    .grid{margin-top:32px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+
+    /* NEW: Latest Drop section under hero */
+    .latest-drop{
+      margin-top:14px;
+      border:1px solid var(--border);
+      border-radius:16px;
+      background:linear-gradient(180deg,#0b121c,#0b1118);
+      padding:16px 18px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .latest-left{
+      min-width:0;
+    }
+    .latest-kicker{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color:var(--muted);
+      font-size:13px;
+      margin-bottom:6px;
+    }
+    .pulse{
+      width:10px;height:10px;border-radius:999px;background:var(--ok);
+      box-shadow:0 0 0 0 rgba(53,212,139,.55);
+      animation:pulse 1.8s infinite;
+      flex:0 0 auto;
+    }
+    @keyframes pulse{
+      0%{box-shadow:0 0 0 0 rgba(53,212,139,.55)}
+      70%{box-shadow:0 0 0 10px rgba(53,212,139,0)}
+      100%{box-shadow:0 0 0 0 rgba(53,212,139,0)}
+    }
+    .latest-title{
+      margin:0 0 6px;
+      font-size:16px;
+      font-weight:700;
+      color:var(--text);
+    }
+    .latest-bullets{
+      margin:0;
+      padding-left:18px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.55;
+    }
+    .latest-meta{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      flex:0 0 auto;
+      align-items:flex-end;
+    }
+    .updated-pill{
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      color:var(--muted);
+      font-size:12px;
+      white-space:nowrap;
+    }
+    .mini-cta{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .mini-link{
+      font-size:13px;
+      padding:8px 12px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      color:var(--text);
+      background:rgba(255,255,255,.02);
+      text-decoration:none;
+      transition:transform .08s ease;
+      white-space:nowrap;
+    }
+    .mini-link:hover{transform:translateY(-1px)}
+    .mini-link.primary{
+      border:none;
+      background:linear-gradient(135deg,var(--brand),var(--brand-2));
+      color:#071223;
+      font-weight:700;
+    }
+    @media (max-width:920px){
+      .latest-drop{flex-direction:column;align-items:stretch}
+      .latest-meta{align-items:flex-start}
+      .mini-cta{justify-content:flex-start}
+    }
+
+    .grid{margin-top:22px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
     @media (max-width:920px){.grid{grid-template-columns:1fr}}
     .card{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:18px;min-height:140px}
     .card h3{margin:0 0 8px;font-size:18px}
     .card p{margin:0;color:var(--muted);font-size:14.5px}
     .tick{color:var(--ok);margin-right:8px}
+
+    /* NEW: human/opinionated card styling */
+    .card.human{
+      background:linear-gradient(135deg,rgba(106,166,255,.14),rgba(32,211,255,.08));
+      border:1px solid rgba(106,166,255,.25);
+      position:relative;
+      overflow:hidden;
+    }
+    .card.human:before{
+      content:"";
+      position:absolute;
+      inset:-40px;
+      background:radial-gradient(circle at 20% 20%, rgba(32,211,255,.18), transparent 55%),
+                 radial-gradient(circle at 80% 60%, rgba(106,166,255,.16), transparent 55%);
+      pointer-events:none;
+    }
+    .card.human h3, .card.human p{position:relative}
+    .card.human p{color:#c3d3ef}
+
     .panel{
       margin-top:28px;
       border:1px solid var(--border);
@@ -250,18 +363,51 @@
       </div>
     </section>
 
+    <!-- NEW: Latest Drop (Option A) -->
+    <section class="latest-drop" aria-label="This Week's Drop">
+      <div class="latest-left">
+        <div class="latest-kicker">
+          <span class="pulse" aria-hidden="true"></span>
+          <span><strong style="color:var(--text)">This Week’s Drop</strong> — fresh picks from live marketplace data</span>
+        </div>
+        <p class="latest-title">🔥 50 eBay products trending right now</p>
+        <ul class="latest-bullets">
+          <li>Ranked by demand signals + seller feedback</li>
+          <li>Clean PDF for quick scanning + CSV if you want to filter/sort</li>
+          <li>Made for resellers & flippers who don’t want to scroll all day</li>
+        </ul>
+      </div>
+
+      <div class="latest-meta">
+        <div class="updated-pill">
+          Updated: <span id="drop-updated">Dec 15, 2025</span>
+        </div>
+        <div class="mini-cta">
+          <a class="mini-link" href="https://trenddropstudio.gumroad.com/l/free-sample?utm_source=website&utm_medium=github&utm_campaign=free-sample" target="_blank" rel="noopener">
+            See a sample
+          </a>
+          <a class="mini-link primary" href="https://trenddropstudio.gumroad.com/l/trend-pack?utm_source=website&utm_medium=github&utm_campaign=latest-drop" target="_blank" rel="noopener">
+            Get this week’s pack →
+          </a>
+        </div>
+      </div>
+    </section>
+
     <section class="grid">
       <div class="card">
         <h3><span class="tick">●</span>Curated & Ranked</h3>
         <p>We surface the top products by seller reputation, pricing, and demand signals. No scraping dumps — only the good stuff.</p>
       </div>
+
+      <!-- NEW: Option B (human card replacing one feature card) -->
+      <div class="card human">
+        <h3><span class="tick">●</span>Built this because scrolling marketplaces sucks.</h3>
+        <p>If you’ve ever lost a “deal” because you saw it too late… yeah. Same. This is my way of getting the good stuff surfaced faster.</p>
+      </div>
+
       <div class="card">
         <h3><span class="tick">●</span>Ready for Action</h3>
         <p>PDF for quick browsing + CSV for filtering, sorting, and importing into your own tools.</p>
-      </div>
-      <div class="card">
-        <h3><span class="tick">●</span>For Sellers Like You</h3>
-        <p>Designed for resellers and store owners who want fast, trustworthy product intel without spending hours researching.</p>
       </div>
     </section>
 
@@ -320,6 +466,15 @@
   <script>
     // Footer year
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    // NEW: auto-set "Updated" label to today's date (local)
+    (function () {
+      const el = document.getElementById('drop-updated');
+      if (!el) return;
+      const d = new Date();
+      const fmt = d.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
+      el.textContent = fmt;
+    })();
 
     // Premium access checker
     (function () {
